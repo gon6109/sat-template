@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.obj": "csharp",
+        "*.pc": "csharp",
+        "*.eobj": "csharp",
+        "*.bg": "scharp",
+    },
+}

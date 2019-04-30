@@ -1,0 +1,46 @@
+using System.Linq;
+
+AddAnimationPart("Object/ibayan/hoge", "png", 12,  "l", 3);
+AddAnimationPart("Object/ibayan/hoge", "png", 12,  "r", 3);
+AddAnimationPart("Object/ibayan/hoge", "png", 12,  "upright", 3);
+
+State = "l";
+
+SetSensor("l", new Vector(-250, 0));
+SetSensor("r", new Vector(250, 0));
+SetSensor("under", new Vector(0, 100), 100);
+
+void OnUpdate(IEventObject mapObject)
+{
+    if (mapObject.IsEvent)
+    {
+        if (mapObject.GetInputState(Inputs.Left) > 0)
+            mapObject.State = "l";
+        else if (mapObject.GetInputState(Inputs.Right) > 0)
+            mapObject.State = "r";
+        else
+            mapObject.State = "upright";
+    }
+    else
+    {
+        if (mapObject.Sensors["l"].Collision.IsCollidedWithObstacle ||
+        mapObject.Sensors["l"].Collision.ColligingMapObjectTags.Count() > 0)
+            mapObject.State = "r";
+        if (mapObject.Sensors["r"].Collision.IsCollidedWithObstacle||
+        mapObject.Sensors["r"].Collision.ColligingMapObjectTags.Count() > 0)
+            mapObject.State = "l";
+     }  
+     
+     if (mapObject.Sensors["under"].Collision.IsCollidedWithObstacle)
+        mapObject.SetImpulse(new Vector(0, -25000), new Vector(50,  0));
+    else if (mapObject.State == "l")
+        mapObject.Velocity = new Vector(-250, mapObject.Velocity.Y);
+    else if (mapObject.State == "r")
+        mapObject.Velocity = new Vector(250, mapObject.Velocity.Y);
+    else if (mapObject.State == "upright")
+        mapObject.Velocity = new Vector(0, mapObject.Velocity.Y);
+}
+
+IsAllowRotation = false;
+Update += OnUpdate;
+MapObjectType = MapObjectType.Active;

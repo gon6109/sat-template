@@ -1,0 +1,56 @@
+AddAnimationPart("Player/dummy_player", "png", 1,  "l", 10);
+AddAnimationPart("Player/dummy_player", "png", 1,  "r", 10);
+AddAnimationPart("Player/dummy_player", "png", 1,  "l_d", 10);
+AddAnimationPart("Player/dummy_player", "png", 1,  "r_d", 10);
+AddAnimationPart("Player/dummy_player", "png", 1,  "upight", 10);
+AddAnimationPart("Player/dummy_player", "png", 1,  "jump", 10);
+
+State = "upright";
+Name = "dummy";
+
+void OnUpdate(IPlayer player)
+{
+    if (Input.GetInputState(Inputs.Up) == 1 && player.IsCollidedWithGround)
+    {
+        player.State = "jump";
+    }
+    else if (Input.GetInputState(Inputs.Left) > 0)
+    {
+        player.State = "l";
+    }
+    else if (Input.GetInputState(Inputs.Right) > 0)
+    {   
+        player.State = "r";
+    }
+    else
+    {
+        player.State = "upright";
+    }
+    
+    if ((player.State == "l" || player.State =="r") && Input.GetInputState(Inputs.B) > 0)
+        player.State += "_d";
+    
+    switch (player.State)
+    {
+        case "l":
+            player.Velocity = new Vector(-150, player.Velocity.Y);
+            break;
+        case "r":
+            player.Velocity = new Vector(150, player.Velocity.Y);
+            break;
+        case "l_d":
+            player.Velocity = new Vector(-300, player.Velocity.Y);
+            break;
+        case "r_d":
+            player.Velocity = new Vector(300, player.Velocity.Y);
+            break;
+        case "upright":
+            player.Velocity = new Vector(0, player.Velocity.Y);
+            break;
+        case "jump":
+            player.Velocity = new Vector(player.Velocity.X, -1500);
+            break;
+    }
+}
+
+Update += OnUpdate;
