@@ -31,7 +31,7 @@ void OnUpdate(IEventObject mapObject)
             mapObject.State = "l";
      }  
      
-     if (mapObject.Sensors["under"].Collision.IsCollidedWithObstacle)
+     if (!mapObject.IsEvent && mapObject.Sensors["under"].Collision.IsCollidedWithObstacle)
         mapObject.SetImpulse(new Vector(0, -25000), new Vector(50,  0));
     else if (mapObject.State == "l")
         mapObject.Velocity = new Vector(-250, mapObject.Velocity.Y);

@@ -10,15 +10,15 @@ Name = "dummy";
 
 void OnUpdate(IPlayer player)
 {
-    if (Input.GetInputState(Inputs.Up) == 1 && player.IsCollidedWithGround)
+    if (player.GetInputState(Inputs.Up) == 1 && player.IsCollidedWithGround)
     {
         player.State = "jump";
     }
-    else if (Input.GetInputState(Inputs.Left) > 0)
+    else if (player.GetInputState(Inputs.Left) > 0)
     {
         player.State = "l";
     }
-    else if (Input.GetInputState(Inputs.Right) > 0)
+    else if (player.GetInputState(Inputs.Right) > 0)
     {   
         player.State = "r";
     }
@@ -27,7 +27,7 @@ void OnUpdate(IPlayer player)
         player.State = "upright";
     }
     
-    if ((player.State == "l" || player.State =="r") && Input.GetInputState(Inputs.B) > 0)
+    if ((player.State == "l" || player.State =="r") && player.GetInputState(Inputs.B) > 0)
         player.State += "_d";
     
     switch (player.State)
