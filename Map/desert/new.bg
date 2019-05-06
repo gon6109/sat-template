@@ -1,0 +1,3 @@
+AddAnimationPart("Map/desert/kusa", "png", 30, "s", 3);
+
+State = "s";

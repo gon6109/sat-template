@@ -8,9 +8,12 @@ AddAnimationPart("Player/dummy_player", "png", 1,  "jump", 10);
 State = "upright";
 Name = "dummy";
 
+ScriptDataContainer<IPlayer, int> jumpCount = new ScriptDataContainer<IPlayer, int>();
+
 void OnUpdate(IPlayer player)
 {
-    if (player.GetInputState(Inputs.Up) == 1 && player.IsCollidedWithGround)
+    if ((player.GetInputState(Inputs.Up) == -1 || player.GetInputState(Inputs.Up) > 5) &&
+        player.IsCollidedWithGround)
     {
         player.State = "jump";
     }
@@ -48,9 +51,11 @@ void OnUpdate(IPlayer player)
             player.Velocity = new Vector(0, player.Velocity.Y);
             break;
         case "jump":
-            player.Velocity = new Vector(player.Velocity.X, -1500);
+            player.Velocity = new Vector(player.Velocity.X, -500 - 180 * jumpCount[player]);
             break;
     }
+    
+    jumpCount[player] = player.GetInputState(Inputs.Up) < 6 ? player.GetInputState(Inputs.Up) : 5;
 }
 
 Update += OnUpdate;
