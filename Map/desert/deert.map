@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <MapIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Path>F:\source\sat-template\Map\desert\deert.map</Path>
+  <Path>C:\Users\hutab\source\repos\gon6109\sat-template\Map\desert\deert.map</Path>
   <MapName>砂漠</MapName>
   <Size>
     <X>10001</X>
@@ -36,7 +36,25 @@
     <MapEventIO>
       <Components>
         <TalkComponentIO>
-          <TalkElements />
+          <TalkElements>
+            <ShowCharacterElementIO>
+              <CharacterName>test</CharacterName>
+              <Index>0</Index>
+            </ShowCharacterElementIO>
+            <TalkElementIO>
+              <CharacterName>test</CharacterName>
+              <Text>こんにちは
+こんばんわ</Text>
+            </TalkElementIO>
+            <ChangeDiffElementIO>
+              <CharacterName>test</CharacterName>
+              <DiffImage>sad</DiffImage>
+            </ChangeDiffElementIO>
+            <TalkElementIO>
+              <CharacterName>test</CharacterName>
+              <Text>あいうえお！</Text>
+            </TalkElementIO>
+          </TalkElements>
         </TalkComponentIO>
       </Components>
       <Actors>
@@ -55,7 +73,9 @@
           <Y>0</Y>
         </InitPosition>
       </Camera>
-      <CharacterImagePaths />
+      <CharacterImagePaths>
+        <string>Character/test/test.ci</string>
+      </CharacterImagePaths>
       <Position>
         <X>811</X>
         <Y>554</Y>
