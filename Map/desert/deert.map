@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <MapIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Path>C:\Users\hutab\source\repos\gon6109\sat-template\Map\desert\deert.map</Path>
+  <Path>F:\source\sat-template\Map\desert\deert.map</Path>
+  <MapName>砂漠</MapName>
   <Size>
-    <X>10000</X>
-    <Y>1080</Y>
+    <X>10001</X>
+    <Y>1482</Y>
   </Size>
   <CollisionBoxes>
     <CollisionBoxIO>
@@ -12,14 +13,14 @@
         <Y>980.3275</Y>
       </Position>
       <Size>
-        <X>9994.658</X>
-        <Y>555.9132</Y>
+        <X>9976.8125</X>
+        <Y>501.6725</Y>
       </Size>
     </CollisionBoxIO>
     <CollisionBoxIO>
       <Position>
         <X>3920.649</X>
-        <Y>798.8795</Y>
+        <Y>798.879456</Y>
       </Position>
       <Size>
         <X>38</X>
@@ -31,7 +32,50 @@
   <Doors />
   <MapObjects />
   <EventObjects />
-  <MapEvents />
+  <MapEvents>
+    <MapEventIO>
+      <Components>
+        <TalkComponentIO>
+          <TalkElements />
+        </TalkComponentIO>
+      </Components>
+      <Actors>
+        <ActorIO>
+          <ID>-1</ID>
+          <Path>Player/new.pc</Path>
+          <InitPosition>
+            <X>1178</X>
+            <Y>904.9525</Y>
+          </InitPosition>
+        </ActorIO>
+      </Actors>
+      <Camera>
+        <InitPosition>
+          <X>300</X>
+          <Y>0</Y>
+        </InitPosition>
+      </Camera>
+      <CharacterImagePaths />
+      <Position>
+        <X>811</X>
+        <Y>554</Y>
+      </Position>
+      <Size>
+        <X>437</X>
+        <Y>459</Y>
+      </Size>
+      <PlayerNames>
+        <string>Player/new.pc</string>
+      </PlayerNames>
+      <MoveToPosition>
+        <X>0</X>
+        <Y>0</Y>
+      </MoveToPosition>
+      <DoorID>0</DoorID>
+      <IsUseDoorID>false</IsUseDoorID>
+      <ID>0</ID>
+    </MapEventIO>
+  </MapEvents>
   <BackGrounds>
     <BackGroundIO>
       <TexturePath>Map/desert/back.png</TexturePath>
@@ -210,6 +254,17 @@
       <Zoom>1</Zoom>
     </BackGroundIO>
   </BackGrounds>
-  <CameraRestrictions />
+  <CameraRestrictions>
+    <CameraRestrictionIO>
+      <Position>
+        <X>-54.78772</X>
+        <Y>1058.804</Y>
+      </Position>
+      <Size>
+        <X>10060.96</X>
+        <Y>1323.476</Y>
+      </Size>
+    </CameraRestrictionIO>
+  </CameraRestrictions>
   <SavePoints />
 </MapIO>

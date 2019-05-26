@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<CharacterImageIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>test</Name>
+  <BaseImagePath>Character/test/base.png</BaseImagePath>
+  <DiffImagePaths>
+    <KeyValueOfStringString>
+      <Key>normal</Key>
+      <Value>Character/test/nomal.png</Value>
+    </KeyValueOfStringString>
+    <KeyValueOfStringString>
+      <Key>sad</Key>
+      <Value>Character/test/sad.png</Value>
+    </KeyValueOfStringString>
+    <KeyValueOfStringString>
+      <Key>wink</Key>
+      <Value>Character/test/wink.png</Value>
+    </KeyValueOfStringString>
+  </DiffImagePaths>
+</CharacterImageIO>
